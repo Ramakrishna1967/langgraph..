@@ -19,3 +19,37 @@ _set_env("LANGSMITH_API_KEY")
 os.environ["LANGSMITH_TRACING"] = "true"
 os.environ["LANGSMITH_PROJECT"] = "langchain-academy"
 
+from langchain_openai import ChatOpenAI
+
+def multiply(a: int, b: int) -> int:
+    """Multiply a and b.
+
+    Args:
+        a: first int
+        b: second int
+    """
+    return a * b
+
+# This will be a tool
+def add(a: int, b: int) -> int:
+    """Adds a and b.
+
+    Args:
+        a: first int
+        b: second int
+    """
+    return a + b
+
+def divide(a: int, b: int) -> float:
+    """Divide a and b.
+
+    Args:
+        a: first int
+        b: second int
+    """
+    return a / b
+
+tools = [add, multiply, divide]
+llm = ChatOpenAI(model="gpt-4o")
+llm_with_tools = llm.bind_tools(tools, parallel_tool_calls=False)
+
