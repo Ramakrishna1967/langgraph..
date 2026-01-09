@@ -86,3 +86,11 @@ sys_msg = SystemMessage(content="You are a helpful assistant tasked with perform
 # Node
 def assistant(state: MessagesState):
    return {"messages": [llm_with_tools.invoke([sys_msg] + state["messages"])]}
+
+
+messages = [HumanMessage(content="Add 3 and 4. Multiply the output by 2. Divide the output by 5")]
+messages = react_graph.invoke({"messages": messages})
+
+
+for m in messages['messages']:
+    m.pretty_print()
