@@ -65,5 +65,4 @@ display(Image(graph.get_graph().draw_mermaid_png()))
 
 
 def node_1(state):
-    print("---node_1-----")
-    return ("node_1":state['graph_state] +"im an fucking hero")
+    print("---node_1-----")    return ("node_1":state['graph_state] +"im an fucking hero")
