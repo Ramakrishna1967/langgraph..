@@ -41,7 +41,7 @@ def save(filename: str) -> str:
     try:
         with open(filename, 'w') as file:
             file.write(document_content)
-        print(f"\n💾 Document has been saved to: {filename}")
+        print(f"\n Document has been saved to: {filename}")
         return f"Document has been saved successfully to '{filename}'."
     
     except Exception as e:
@@ -76,9 +76,9 @@ def our_agent(state: AgentState) -> AgentState:
 
     response = model.invoke(all_messages)
 
-    print(f"\n🤖 AI: {response.content}")
+    print(f"\n AI: {response.content}")
     if hasattr(response, "tool_calls") and response.tool_calls:
-        print(f"🔧 USING TOOLS: {[tc['name'] for tc in response.tool_calls]}")
+        print(f" USING TOOLS: {[tc['name'] for tc in response.tool_calls]}")
 
     return {"messages": list(state["messages"]) + [user_message, response]}
 
