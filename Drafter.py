@@ -1,5 +1,5 @@
 from typing import Annotated, Sequence, TypedDict
-from dotenv import load_dotenv  
+from dotenv import load_dotenv
 from langchain_core.messages import BaseMessage, HumanMessage, AIMessage, ToolMessage, SystemMessage
 from langchain_openai import ChatOpenAI
 from langchain_core.tools import tool
